@@ -1,4 +1,4 @@
-/* Eric Rivas, Professor Ash, Mt. Sac ENGR 6 Final Project Presentation */
+/* Eric Rivas */
 /* Line Tracking IO define */
 #define LT_R !digitalRead(10)
 #define LT_M !digitalRead(4)
