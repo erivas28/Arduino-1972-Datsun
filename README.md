@@ -1,5 +1,9 @@
 # Arduino-1972-Datsun
-Autonomous Car that follows a line path, utilizing 4 DC motors. Car can be modified to be bluetooth controlled.
+Autonomous Car that follows a line path, utilizing 4 DC motors. Car incorporates IR sensors to identify whether marker (black tape) is detected.
+If the IR sensor detects the black tape, then the car will fix itself accordingly to stay within the constraints.
+This keeps the car on path, following the black tape that is provided.
+Works best where tape is clearly a different color than its background.
+For testing, I pasted the black tape on white, laminated floor.  
 
 <iframe src="https://drive.google.com/file/d/1myyBsdfFLu7RBOGmeZGa02uNDhXyVqft/preview" width="640" height="480" allow="autoplay"></iframe>
 
