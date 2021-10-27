@@ -1,0 +1,84 @@
+/* Eric Rivas, Professor Ash, Mt. Sac ENGR 6 Final Project Presentation */
+/* Line Tracking IO define */
+#define LT_R !digitalRead(10)
+#define LT_M !digitalRead(4)
+#define LT_L !digitalRead(2)
+/* Define L298 Motor Driver */
+#define ENA 5
+#define ENB 6
+#define IN1 7
+#define IN2 8
+#define IN3 9
+#define IN4 11
+/* Define speed for car, where 250 is max */
+#define carSpeed 250
+/* Function for car to move Forward */
+void forward() {
+  analogWrite(ENA, carSpeed);
+  analogWrite(ENB, carSpeed);
+  digitalWrite(IN1, HIGH);
+  digitalWrite(IN2, LOW);
+  digitalWrite(IN3, LOW);
+  digitalWrite(IN4, HIGH);
+  Serial.println("Forward");
+}
+/* Function for car to move Reverse */
+void reverse() {
+  analogWrite(ENA, carSpeed);
+  analogWrite(ENB, carSpeed);
+  digitalWrite(IN1, LOW);
+  digitalWrite(IN2, HIGH);
+  digitalWrite(IN3, HIGH);
+  digitalWrite(IN4, LOW);
+  Serial.println("Reverse");
+}
+/* Function for car to turn Left */
+void left() {
+  analogWrite(ENA, carSpeed);
+  analogWrite(ENB, carSpeed);
+  digitalWrite(IN1, LOW);
+  digitalWrite(IN2, HIGH);
+  digitalWrite(IN3, LOW);
+  digitalWrite(IN4, HIGH);
+  Serial.println("Left");
+}
+/* Function for car to turn Right */
+void right() {
+  analogWrite(ENA, carSpeed);
+  analogWrite(ENB, carSpeed);
+  digitalWrite(IN1, HIGH);
+  digitalWrite(IN2, LOW);
+  digitalWrite(IN3, HIGH);
+  digitalWrite(IN4, LOW);
+  Serial.println("Right");
+}
+/* Function for car to Stop */
+void stop() {
+  digitalWrite(ENA, LOW);
+  digitalWrite(ENB, LOW);
+  Serial.println("Stop");
+}
+/* Setup Serial, along with initializing sensor pins */
+void setup() {
+  Serial.begin(9600);
+  pinMode(10, INPUT);
+  pinMode(4, INPUT);
+  pinMode(2, INPUT);
+}
+/* Loop for motors to stay spinning */
+void loop() {
+  /* If middle sensor detects black line, move Forward */
+  if (LT_M) {
+    forward();
+  }
+  /* If right sensor detects black line, move Right */
+  else if (LT_R) {
+    right();
+    while (LT_R);
+  }
+  /* If left sensor detects black line, move Left */
+  else if (LT_L) {
+    left();
+    while (LT_L);
+  }
+}
