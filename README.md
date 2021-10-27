@@ -4,7 +4,14 @@ If the IR sensor detects the black tape, then the car will fix itself accordingl
 This keeps the car on path, following the black tape that is provided.
 Works best where tape is clearly a different color than its background.
 For testing, I pasted the black tape on white, laminated floor.  
-
+  
+  
+We will also talk about different functions you may implement to the autonomous car.
+This includes collision prevention, and even bluetooth controlled!
+Also, creating a custom baseplate is an important step, as this allows you to
+implement your own body style for the car.
+  
+  
 <iframe src="https://drive.google.com/file/d/1myyBsdfFLu7RBOGmeZGa02uNDhXyVqft/preview" width="640" height="480" allow="autoplay"></iframe>
 
 **PARTS REQUIRED**  
